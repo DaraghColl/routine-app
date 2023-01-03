@@ -2,12 +2,17 @@ import { Menu, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import {
   EllipsisVerticalIcon,
+  PlayIcon,
   DocumentCheckIcon,
   PencilSquareIcon,
   TrashIcon,
 } from '@heroicons/react/24/outline';
 
 const menuItems = [
+  {
+    name: 'Progress',
+    icon: PlayIcon,
+  },
   {
     name: 'Complete',
     icon: DocumentCheckIcon,
@@ -41,7 +46,7 @@ function RoutineItemMenu() {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="w-50 rounded-m absolute right-0 z-10 mt-2 origin-top-right divide-y divide-gray-100 bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-900">
+          <Menu.Items className="rounded-m absolute top-0 right-3 z-10 mt-2 w-auto origin-top-right divide-y divide-gray-100 bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-900">
             {menuItems.map((item) => {
               return (
                 <Menu.Item>
