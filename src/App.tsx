@@ -1,3 +1,4 @@
+import { Reorder } from 'framer-motion';
 import { useContext } from 'react';
 import './App.css';
 import { RoutineItem } from './components/RoutineItem/RoutineItem';
@@ -6,8 +7,7 @@ import { RoutineItemInterface } from './models/RoutineItem';
 import { RoutineItemsStateContext } from './state/RoutineItemsState';
 
 function App() {
-  const [routineItems] = useContext(RoutineItemsStateContext);
-  console.log(routineItems);
+  const [routineItems, setRoutineItems] = useContext(RoutineItemsStateContext);
 
   return (
     <div className="App h-screen bg-white dark:bg-black">
@@ -18,9 +18,11 @@ function App() {
       </h1>
 
       <div className="px-4 py-10">
-        {routineItems.map((item: RoutineItemInterface) => {
-          return <RoutineItem item={item} key={item.id} />;
-        })}
+        <Reorder.Group axis="y" values={routineItems} onReorder={setRoutineItems}>
+          {routineItems.map((item: RoutineItemInterface) => {
+            return <RoutineItem item={item} key={item.id} />;
+          })}
+        </Reorder.Group>
       </div>
     </div>
   );
