@@ -1,7 +1,8 @@
 import { Reorder } from 'framer-motion';
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { RoutineItemInterface } from '../../models/RoutineItem';
-import { RoutineItemMenu } from '../RoutineItemMenu/RoutineItemMenu';
+import { EllipsisVerticalIcon } from '@heroicons/react/24/outline';
+import { RoutineItemsStateContext } from '../../state/RoutineItemsState';
 
 interface RoutineItemProps {
   item: RoutineItemInterface;
@@ -9,6 +10,12 @@ interface RoutineItemProps {
 
 const RoutineItem: FC<RoutineItemProps> = (props) => {
   const { item } = props;
+  const { setItemToEdit, setIsItemOptionsOpen } = useContext(RoutineItemsStateContext);
+
+  const onItemSelect = (itemId: number) => {
+    setIsItemOptionsOpen(true);
+    setItemToEdit(itemId);
+  };
 
   return (
     <Reorder.Item key={item.id} value={item}>
@@ -22,7 +29,11 @@ const RoutineItem: FC<RoutineItemProps> = (props) => {
             <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">{item.subTitle}</p>
           )}
         </div>
-        <RoutineItemMenu />
+        <EllipsisVerticalIcon
+          className="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"
+          aria-hidden="true"
+          onClick={() => onItemSelect(item.id)}
+        />
       </div>
     </Reorder.Item>
   );

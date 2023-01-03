@@ -2,12 +2,13 @@ import { Reorder } from 'framer-motion';
 import { useContext } from 'react';
 import './App.css';
 import { RoutineItem } from './components/RoutineItem/RoutineItem';
+import { RoutineItemDialog } from './components/RoutineItemDialog/RoutineItemDialog';
 import { ThemeSwitch } from './components/ThemeSwitch/ThemeSwitch';
 import { RoutineItemInterface } from './models/RoutineItem';
 import { RoutineItemsStateContext } from './state/RoutineItemsState';
 
 function App() {
-  const [routineItems, setRoutineItems] = useContext(RoutineItemsStateContext);
+  const { routineItems, setRoutineItems } = useContext(RoutineItemsStateContext);
 
   return (
     <div className="App h-screen bg-white dark:bg-black">
@@ -24,6 +25,7 @@ function App() {
           })}
         </Reorder.Group>
       </div>
+      <RoutineItemDialog />
     </div>
   );
 }

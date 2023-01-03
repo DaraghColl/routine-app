@@ -28,8 +28,28 @@ const RoutineItemsStateProvider: FC<RoutineItemsProps> = ({ children }) => {
       status: 'todo',
     },
   ]);
+
+  const [itemToEdit, setItemToEdit] = useState<number | null>(null);
+
+  const [isItemOptionsOpen, setIsItemOptionsOpen] = useState(false);
+
+  const deleteRoutineItem = (id: number) => {
+    const itemsArrayCopy = [...routineItems];
+    const newRoutineItems = itemsArrayCopy.filter((item) => item.id !== id);
+    setRoutineItems(newRoutineItems);
+  };
   return (
-    <RoutineItemsStateContext.Provider value={[routineItems, setRoutineItems]}>
+    <RoutineItemsStateContext.Provider
+      value={{
+        routineItems,
+        setRoutineItems,
+        deleteRoutineItem,
+        itemToEdit,
+        setItemToEdit,
+        isItemOptionsOpen,
+        setIsItemOptionsOpen,
+      }}
+    >
       {children}
     </RoutineItemsStateContext.Provider>
   );
