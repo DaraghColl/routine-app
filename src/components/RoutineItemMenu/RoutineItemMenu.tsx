@@ -49,7 +49,7 @@ function RoutineItemMenu() {
           <Menu.Items className="rounded-m absolute top-0 right-3 z-10 mt-2 w-auto origin-top-right divide-y divide-gray-100 bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-900">
             {menuItems.map((item) => {
               return (
-                <Menu.Item>
+                <Menu.Item key={item.name}>
                   <button className="group flex w-full items-center rounded-md border-none px-2 py-2 text-sm">
                     <item.icon className="mr-2 h-4 w-4 text-indigo-500" aria-hidden="true" />
                     {item.name}
