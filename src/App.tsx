@@ -1,30 +1,13 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import './App.css';
 import { RoutineItem } from './components/RoutineItem/RoutineItem';
 import { ThemeSwitch } from './components/ThemeSwitch/ThemeSwitch';
 import { RoutineItemInterface } from './models/RoutineItem';
+import { RoutineItemsStateContext } from './state/RoutineItemsState';
 
 function App() {
-  const [routineItems, setRoutineItems] = useState<RoutineItemInterface[]>([
-    {
-      id: 0,
-      title: 'Go running 🏃‍♂️',
-      subTitle: 'Distance: 5km',
-      status: 'todo',
-    },
-    {
-      id: 1,
-      title: 'Brush Teeth 🪥',
-      subTitle: '',
-      status: 'todo',
-    },
-    {
-      id: 2,
-      title: 'Breakfast 🍳',
-      subTitle: 'Toast, Eggs, Coffee',
-      status: 'todo',
-    },
-  ]);
+  const [routineItems] = useContext(RoutineItemsStateContext);
+  console.log(routineItems);
 
   return (
     <div className="App h-screen bg-white dark:bg-black">
