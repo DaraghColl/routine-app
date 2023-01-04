@@ -17,7 +17,7 @@ const RoutineItemsStateProvider: FC<RoutineItemsProps> = ({ children }) => {
     },
     {
       id: 1,
-      title: 'Brush Teeth 🪥',
+      title: 'Brush teeth 🪥',
       subTitle: '',
       status: 'todo',
     },
@@ -38,6 +38,13 @@ const RoutineItemsStateProvider: FC<RoutineItemsProps> = ({ children }) => {
     const newRoutineItems = itemsArrayCopy.filter((item) => item.id !== id);
     setRoutineItems(newRoutineItems);
   };
+
+  const seRoutineItemStatus = (status: string, id: number) => {
+    const itemsArrayCopy = [...routineItems];
+    const itemToChangeStatus = itemsArrayCopy.findIndex((item) => item.id === id);
+    itemsArrayCopy[itemToChangeStatus].status = status;
+    setRoutineItems(itemsArrayCopy);
+  };
   return (
     <RoutineItemsStateContext.Provider
       value={{
@@ -48,6 +55,7 @@ const RoutineItemsStateProvider: FC<RoutineItemsProps> = ({ children }) => {
         setItemToEdit,
         isItemOptionsOpen,
         setIsItemOptionsOpen,
+        seRoutineItemStatus,
       }}
     >
       {children}

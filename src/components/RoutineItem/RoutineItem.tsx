@@ -8,6 +8,12 @@ interface RoutineItemProps {
   item: RoutineItemInterface;
 }
 
+const statusColorMap: Record<string, string> = {
+  todo: 'bg-slate-400',
+  progress: 'bg-blue-400',
+  complete: 'bg-emerald-400',
+};
+
 const RoutineItem: FC<RoutineItemProps> = (props) => {
   const { item } = props;
   const { setItemToEdit, setIsItemOptionsOpen } = useContext(RoutineItemsStateContext);
@@ -19,14 +25,22 @@ const RoutineItem: FC<RoutineItemProps> = (props) => {
 
   return (
     <Reorder.Item key={item.id} value={item}>
-      <div className="relative mb-4 flex justify-between rounded-lg bg-white px-4 py-4 align-middle text-slate-800 shadow-sm ring-1 ring-slate-900/5 dark:bg-gray-900 dark:text-white">
+      <div className="relative mb-4 flex cursor-pointer items-center justify-between rounded-lg bg-white px-4 py-4 align-middle tracking-wide text-slate-800 ring-1 ring-slate-900/5 dark:bg-gray-900 dark:text-white">
         <div>
-          <div className="absolute left-0 top-0 h-full w-2 rounded-l-md bg-blue-500"></div>
-          <h3 className="text-base font-medium tracking-tight text-black dark:text-white">
+          {/* <div className="absolute left-0 top-0 h-full w-2 rounded-l-md bg-blue-500"></div> */}
+          <div
+            className={`absolute left-0 top-0 h-full w-2 rounded-l-md bg-blue-500 ${
+              statusColorMap[item.status]
+            }`}
+          ></div>
+
+          <h3 className="text-base font-semibold tracking-wider text-black dark:text-white">
             {item.title}
           </h3>
           {item.subTitle && (
-            <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">{item.subTitle}</p>
+            <p className="mt-2 text-sm font-normal   text-slate-500 dark:text-slate-400">
+              {item.subTitle}
+            </p>
           )}
         </div>
         <EllipsisVerticalIcon

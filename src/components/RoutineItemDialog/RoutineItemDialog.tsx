@@ -9,8 +9,13 @@ import {
 import { RoutineItemsStateContext } from '../../state/RoutineItemsState';
 
 const RoutineItemDialog = () => {
-  const { deleteRoutineItem, itemToEdit, isItemOptionsOpen, setIsItemOptionsOpen } =
-    useContext(RoutineItemsStateContext);
+  const {
+    deleteRoutineItem,
+    seRoutineItemStatus,
+    itemToEdit,
+    isItemOptionsOpen,
+    setIsItemOptionsOpen,
+  } = useContext(RoutineItemsStateContext);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -24,6 +29,11 @@ const RoutineItemDialog = () => {
       case 'delete':
         deleteRoutineItem(itemId);
         break;
+      case 'progress':
+        seRoutineItemStatus('progress', itemId);
+        break;
+      case 'complete':
+        seRoutineItemStatus('complete', itemId);
     }
     closeModal();
   };
@@ -59,27 +69,33 @@ const RoutineItemDialog = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="absolute bottom-0 w-full transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-gray-900 dark:text-white">
+                <Dialog.Panel className="absolute bottom-0 h-1/2 w-full transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-gray-900 dark:text-white">
                   <div className="flex flex-col">
-                    <button className="mt-2 flex items-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                    <button
+                      className="text-md mt-2 flex items-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      onClick={() => routineItemMenuAction('progress', itemToEdit)}
+                    >
                       <PlayIcon className="mr-2 h-4 w-4 text-indigo-500" />
                       Mark as in progress
                     </button>
 
-                    <button className="mt-2 flex items-center rounded-md border border-transparent bg-emerald-100 px-4 py-2 text-sm font-medium text-emerald-900 hover:bg-emerald-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+                    <button
+                      className="text-md mt-2 flex items-center rounded-md border border-transparent bg-emerald-100 px-4 py-2 font-medium text-emerald-900 hover:bg-emerald-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
+                      onClick={() => routineItemMenuAction('complete', itemToEdit)}
+                    >
                       <DocumentCheckIcon className="mr-2 h-4 w-4 text-emerald-500" />
                       Mark as complete
                     </button>
 
                     <button
-                      className="mt-2 flex items-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+                      className="text-md mt-2 flex items-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
                       onClick={() => routineItemMenuAction('delete', itemToEdit)}
                     >
                       <TrashIcon className="mr-2 h-4 w-4 text-red-500" />
                       Delete item
                     </button>
 
-                    <button className="mt-2 flex items-center rounded-md border border-transparent bg-slate-100 px-4 py-2 text-sm font-medium text-slate-900 hover:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2">
+                    <button className="text-md mt-2 flex items-center rounded-md border border-transparent bg-slate-100 px-4 py-2 font-medium text-slate-900 hover:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2">
                       <PencilSquareIcon className="mr-2 h-4 w-4 text-slate-500" />
                       Edit Item
                     </button>

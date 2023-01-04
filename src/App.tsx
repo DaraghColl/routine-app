@@ -11,10 +11,10 @@ function App() {
   const { routineItems, setRoutineItems } = useContext(RoutineItemsStateContext);
 
   return (
-    <div className="App h-screen bg-white dark:bg-black">
+    <div className="App h-screen bg-slate-100 dark:bg-black">
       <ThemeSwitch />
 
-      <h1 className="text-center text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 sm:text-3xl">
+      <h1 className="text-center text-2xl font-extrabold text-slate-900 dark:text-slate-200 sm:text-3xl">
         Your Day
       </h1>
 
