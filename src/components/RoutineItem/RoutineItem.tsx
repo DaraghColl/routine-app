@@ -28,7 +28,7 @@ const RoutineItem: FC<RoutineItemProps> = (props) => {
       <div className="relative mb-4 flex cursor-pointer items-center justify-between rounded-lg bg-white px-4 py-4 align-middle tracking-wide text-slate-800 ring-1 ring-slate-900/5 dark:bg-gray-900 dark:text-white">
         <div>
           <div
-            className={`absolute left-0 top-0 h-full w-2 rounded-l-md bg-blue-500 ${
+            className={`absolute left-0 top-0 h-full w-2 rounded-l-md ${
               statusColorMap[item.status]
             }`}
           ></div>
