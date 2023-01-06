@@ -11,20 +11,26 @@ const RoutineItemsStateProvider: FC<RoutineItemsProps> = ({ children }) => {
   const [routineItems, setRoutineItems] = useState<RoutineItemInterface[]>([
     {
       id: 0,
-      title: 'Go running 🏃‍♂️',
+      title: 'Go running',
+      icon: '🏃‍♂️',
       subTitle: 'Distance: 5km',
+      time: '09:00',
       status: 'todo',
     },
     {
       id: 1,
-      title: 'Brush teeth 🪥',
+      title: 'Brush teeth ',
+      icon: '🪥',
       subTitle: '',
+      time: '09:30',
       status: 'todo',
     },
     {
       id: 2,
-      title: 'Breakfast 🍳',
+      title: 'Breakfast',
+      icon: '🍳',
       subTitle: 'Toast, Eggs, Coffee',
+      time: '10:15',
       status: 'todo',
     },
   ]);
