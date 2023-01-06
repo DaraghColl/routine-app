@@ -14,7 +14,7 @@ function App() {
   const completeItems = routineItems.filter((item: any) => item.status === 'complete');
 
   return (
-    <div className="App h-screen bg-slate-100 dark:bg-black">
+    <div className="App h-screen bg-slate-50 dark:bg-slate-700">
       <ThemeSwitch />
 
       <h1 className="text-center text-2xl font-extrabold text-slate-900 dark:text-slate-200 sm:text-3xl">
