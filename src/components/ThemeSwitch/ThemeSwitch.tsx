@@ -11,7 +11,7 @@ const ThemeSwitch: FC = () => {
   return (
     <div className="flex justify-end py-2 px-4">
       <button
-        className="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg"
+        className="inline-flex items-center justify-center rounded-md bg-slate-800 p-2 shadow-lg"
         onClick={() => setIsDark(!isDark)}
       >
         {isDark && <SunIcon className="h-4 w-4 text-white" />}
