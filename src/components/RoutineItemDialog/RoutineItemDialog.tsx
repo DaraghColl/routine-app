@@ -5,6 +5,7 @@ import {
   DocumentCheckIcon,
   PencilSquareIcon,
   TrashIcon,
+  PlusIcon,
 } from '@heroicons/react/24/outline';
 import { RoutineItemsStateContext } from '../../state/RoutineItemsState';
 
@@ -69,10 +70,10 @@ const RoutineItemDialog = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="absolute bottom-0 h-1/2 w-full transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-gray-900 dark:text-white">
+                <Dialog.Panel className="absolute bottom-0 h-1/2 w-11/12 transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-800 dark:text-white">
                   <div className="flex flex-col">
                     <button
-                      className="text-md mt-2 flex items-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="text-md mt-2 flex items-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 hover:bg-blue-200 focus:outline-none"
                       onClick={() => routineItemMenuAction('progress', itemToEdit)}
                     >
                       <PlayIcon className="mr-2 h-4 w-4 text-indigo-500" />
@@ -80,7 +81,7 @@ const RoutineItemDialog = () => {
                     </button>
 
                     <button
-                      className="text-md mt-2 flex items-center rounded-md border border-transparent bg-emerald-100 px-4 py-2 font-medium text-emerald-900 hover:bg-emerald-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
+                      className="text-md mt-2 flex items-center rounded-md border border-transparent bg-emerald-100 px-4 py-2 font-medium text-emerald-900 hover:bg-emerald-200 focus:outline-none"
                       onClick={() => routineItemMenuAction('complete', itemToEdit)}
                     >
                       <DocumentCheckIcon className="mr-2 h-4 w-4 text-emerald-500" />
@@ -88,16 +89,21 @@ const RoutineItemDialog = () => {
                     </button>
 
                     <button
-                      className="text-md mt-2 flex items-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+                      className="text-md mt-2 flex items-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-red-900 hover:bg-red-200 focus:outline-none"
                       onClick={() => routineItemMenuAction('delete', itemToEdit)}
                     >
                       <TrashIcon className="mr-2 h-4 w-4 text-red-500" />
                       Delete item
                     </button>
 
-                    <button className="text-md mt-2 flex items-center rounded-md border border-transparent bg-slate-100 px-4 py-2 font-medium text-slate-900 hover:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2">
-                      <PencilSquareIcon className="mr-2 h-4 w-4 text-slate-500" />
+                    <button className="text-md mt-2 flex items-center rounded-md border border-transparent bg-slate-100 px-4 py-2 font-medium text-slate-900 hover:bg-slate-200">
+                      <PencilSquareIcon className="mr-2 h-4 w-4 text-slate-500 focus:outline-none" />
                       Edit Item
+                    </button>
+
+                    <button className="text-md mt-10 flex items-center rounded-md border border-transparent bg-slate-800 px-4 py-2 font-medium text-white focus:outline-none dark:bg-white dark:text-slate-800">
+                      <PlusIcon className="mr-2 h-4 w-4 text-white dark:text-slate-800" />
+                      New Item
                     </button>
                   </div>
                 </Dialog.Panel>
