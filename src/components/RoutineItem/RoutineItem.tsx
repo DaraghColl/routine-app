@@ -1,7 +1,6 @@
 import { Reorder } from 'framer-motion';
 import { FC, useContext } from 'react';
 import { RoutineItemInterface } from '../../models/RoutineItem';
-import { EllipsisVerticalIcon } from '@heroicons/react/24/outline';
 import { RoutineItemsStateContext } from '../../state/RoutineItemsState';
 
 interface RoutineItemProps {
@@ -25,7 +24,7 @@ const RoutineItem: FC<RoutineItemProps> = (props) => {
 
   return (
     <Reorder.Item key={item.id} value={item} onClick={() => onItemSelect(item.id)}>
-      <div className="relative mb-4 flex cursor-pointer items-center justify-between rounded-lg  bg-white px-4 py-4 align-middle tracking-wide shadow-md ring-0 dark:border-slate-500 dark:bg-slate-800">
+      <div className="relative mb-4 flex cursor-pointer items-center justify-between rounded-lg  bg-white px-4 py-4 align-middle tracking-wide ring-0 dark:border-slate-500 dark:bg-slate-800">
         <div className="w-full">
           <div
             className={`absolute left-0 top-0 h-full w-2 rounded-l-md ${
