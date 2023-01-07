@@ -1,6 +1,7 @@
 import { Reorder } from 'framer-motion';
 import { Fragment, useContext } from 'react';
 import './App.css';
+import { AddRoutineItem } from './components/AddRoutineItem/AddRoutineItem';
 import { RoutineItem } from './components/RoutineItem/RoutineItem';
 import { RoutineItemDialog } from './components/RoutineItemDialog/RoutineItemDialog';
 import { ThemeSwitch } from './components/ThemeSwitch/ThemeSwitch';
@@ -9,9 +10,6 @@ import { RoutineItemsStateContext } from './state/RoutineItemsState';
 
 function App() {
   const { routineItems, setRoutineItems } = useContext(RoutineItemsStateContext);
-  const todoItems = routineItems.filter((item: any) => item.status === 'todo');
-  const inProgressItems = routineItems.filter((item: any) => item.status === 'progress');
-  const completeItems = routineItems.filter((item: any) => item.status === 'complete');
 
   return (
     <div className="App h-screen bg-slate-50 dark:bg-slate-700">
@@ -22,25 +20,9 @@ function App() {
       </h1>
 
       <div className="px-4 py-10">
+        <AddRoutineItem />
         <Reorder.Group axis="y" values={routineItems} onReorder={setRoutineItems}>
-          <h2 className="text-md mb-2 mt-2 font-bold dark:text-white">In Progress</h2>
-          {inProgressItems.map((item: RoutineItemInterface) => {
-            return (
-              <Fragment key={item.id}>
-                <RoutineItem item={item} />
-              </Fragment>
-            );
-          })}
-          <h2 className="text-md mb-2 mt-2 font-bold dark:text-white">Todo</h2>
-          {todoItems.map((item: RoutineItemInterface) => {
-            return (
-              <Fragment key={item.id}>
-                <RoutineItem item={item} />
-              </Fragment>
-            );
-          })}
-          <h2 className="text-md mb-2 mt-2 font-bold dark:text-white">Complete</h2>
-          {completeItems.map((item: RoutineItemInterface) => {
+          {routineItems.map((item: RoutineItemInterface) => {
             return (
               <Fragment key={item.id}>
                 <RoutineItem item={item} />
