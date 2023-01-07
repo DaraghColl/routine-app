@@ -5,14 +5,13 @@ import {
   DocumentCheckIcon,
   PencilSquareIcon,
   TrashIcon,
-  PlusIcon,
 } from '@heroicons/react/24/outline';
 import { RoutineItemsStateContext } from '../../state/RoutineItemsState';
 
 const RoutineItemDialog = () => {
   const {
     deleteRoutineItem,
-    seRoutineItemStatus,
+    setRoutineItemStatus,
     itemToEdit,
     isItemOptionsOpen,
     setIsItemOptionsOpen,
@@ -25,16 +24,17 @@ const RoutineItemDialog = () => {
     setIsItemOptionsOpen(false);
   };
 
-  const routineItemMenuAction = (action: string, itemId: number) => {
+  const routineItemMenuAction = (action: string, itemId?: number) => {
     switch (action) {
       case 'delete':
         deleteRoutineItem(itemId);
         break;
       case 'progress':
-        seRoutineItemStatus('progress', itemId);
+        setRoutineItemStatus('progress', itemId);
         break;
       case 'complete':
-        seRoutineItemStatus('complete', itemId);
+        setRoutineItemStatus('complete', itemId);
+        break;
     }
     closeModal();
   };
@@ -99,11 +99,6 @@ const RoutineItemDialog = () => {
                     <button className="text-md mt-2 flex items-center rounded-md border border-transparent bg-slate-100 px-4 py-2 font-medium text-slate-900 hover:bg-slate-200">
                       <PencilSquareIcon className="mr-2 h-4 w-4 text-slate-500 focus:outline-none" />
                       Edit Item
-                    </button>
-
-                    <button className="text-md mt-10 flex items-center rounded-md border border-transparent bg-slate-800 px-4 py-2 font-medium text-white focus:outline-none dark:bg-white dark:text-slate-800">
-                      <PlusIcon className="mr-2 h-4 w-4 text-white dark:text-slate-800" />
-                      New Item
                     </button>
                   </div>
                 </Dialog.Panel>
