@@ -39,29 +39,33 @@ const RoutineItemsStateProvider: FC<RoutineItemsProps> = ({ children }) => {
 
   const [isItemOptionsOpen, setIsItemOptionsOpen] = useState(false);
 
-  const deleteRoutineItem = (id: number) => {
-    const itemsArrayCopy = [...routineItems];
-    const newRoutineItems = itemsArrayCopy.filter((item) => item.id !== id);
-    setRoutineItems(newRoutineItems);
+  const addRoutineItem = (routineItem: RoutineItemInterface) => {
+    setRoutineItems([...routineItems, routineItem]);
   };
 
-  const seRoutineItemStatus = (status: string, id: number) => {
+  const deleteRoutineItem = (id: number) => {
+    setRoutineItems(routineItems.filter((item) => item.id !== id));
+  };
+
+  const setRoutineItemStatus = (status: string, id: number) => {
     const itemsArrayCopy = [...routineItems];
     const itemToChangeStatus = itemsArrayCopy.findIndex((item) => item.id === id);
     itemsArrayCopy[itemToChangeStatus].status = status;
     setRoutineItems(itemsArrayCopy);
   };
+
   return (
     <RoutineItemsStateContext.Provider
       value={{
         routineItems,
+        itemToEdit,
+        isItemOptionsOpen,
         setRoutineItems,
         deleteRoutineItem,
-        itemToEdit,
         setItemToEdit,
-        isItemOptionsOpen,
         setIsItemOptionsOpen,
-        seRoutineItemStatus,
+        setRoutineItemStatus,
+        addRoutineItem,
       }}
     >
       {children}
