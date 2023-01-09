@@ -73,10 +73,10 @@ const AddRoutineItem: FC = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="absolute h-auto w-11/12 transform overflow-hidden rounded-lg bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-800 dark:text-white">
-                  <div className="mb-6 md:flex md:items-center">
+                <Dialog.Panel className="absolute mx-auto h-auto w-11/12 max-w-md transform overflow-hidden rounded-lg bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-800 dark:text-white">
+                  <div className="mb-6">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                      <div className="md:w-2/3">
+                      <div>
                         <InputItem register={register} name="title" title="Name" />
                         <InputItem register={register} name="icon" title="Icon" />
                         <InputItem register={register} name="subTitle" title="Sub title" />

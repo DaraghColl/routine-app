@@ -13,25 +13,27 @@ function App() {
 
   return (
     <div className="App h-screen bg-slate-50 dark:bg-slate-700">
-      <ThemeSwitch />
+      <div className="mx-auto max-w-lg">
+        <ThemeSwitch />
 
-      <h1 className="text-center text-2xl font-extrabold text-slate-900 dark:text-slate-200 sm:text-3xl">
-        Your Day
-      </h1>
+        <h1 className="text-center text-2xl font-extrabold text-slate-900 dark:text-slate-200 sm:text-3xl">
+          Your Day
+        </h1>
 
-      <div className="px-4 py-10">
-        <AddRoutineItem />
-        <Reorder.Group axis="y" values={routineItems} onReorder={setRoutineItems}>
-          {routineItems.map((item: RoutineItemInterface) => {
-            return (
-              <Fragment key={item.id}>
-                <RoutineItem item={item} />
-              </Fragment>
-            );
-          })}
-        </Reorder.Group>
+        <div className="px-4 py-10">
+          <AddRoutineItem />
+          <Reorder.Group axis="y" values={routineItems} onReorder={setRoutineItems}>
+            {routineItems.map((item: RoutineItemInterface) => {
+              return (
+                <Fragment key={item.id}>
+                  <RoutineItem item={item} />
+                </Fragment>
+              );
+            })}
+          </Reorder.Group>
+        </div>
+        <RoutineItemDialog />
       </div>
-      <RoutineItemDialog />
     </div>
   );
 }
