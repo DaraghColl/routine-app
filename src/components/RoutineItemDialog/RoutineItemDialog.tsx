@@ -70,7 +70,7 @@ const RoutineItemDialog = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="absolute bottom-0 h-1/2 w-11/12 transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-800 dark:text-white">
+                <Dialog.Panel className="absolute bottom-0 h-auto w-11/12 transform overflow-hidden rounded-t-lg rounded-b-none bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-800 dark:text-white">
                   <div className="flex flex-col">
                     <button
                       className="text-md mt-2 flex items-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 hover:bg-blue-200 focus:outline-none"
