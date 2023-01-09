@@ -1,5 +1,5 @@
 import { Reorder } from 'framer-motion';
-import { FC, useContext } from 'react';
+import { FC, useContext, useState } from 'react';
 import { RoutineItemInterface } from '../../models/RoutineItem';
 import { RoutineItemsStateContext } from '../../state/RoutineItemsState';
 
@@ -43,9 +43,9 @@ const RoutineItem: FC<RoutineItemProps> = (props) => {
             </p>
           )}
         </div>
-        <p className="mt-2 min-w-[75px] border-b-2 py-2 text-center text-slate-500 dark:text-slate-400">
+        <span className="mt-2 min-w-[75px] text-center text-slate-500 dark:text-slate-400">
           {item.time}
-        </p>
+        </span>
       </div>
     </Reorder.Item>
   );
