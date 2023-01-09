@@ -9,7 +9,7 @@ interface InputItemProps {
 const InputItem: FC<InputItemProps> = ({ register, name, title, ...rest }) => {
   return (
     <div>
-      <label htmlFor={name} className="text-sm">
+      <label htmlFor={name} className="text-sm text-slate-500 dark:text-slate-400">
         {title}
       </label>
       <input

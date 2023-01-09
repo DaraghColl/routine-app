@@ -73,7 +73,7 @@ const AddRoutineItem: FC = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="absolute bottom-0 h-auto w-11/12 transform overflow-hidden rounded-t-lg rounded-b-none bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-800 dark:text-white">
+                <Dialog.Panel className="absolute h-auto w-11/12 transform overflow-hidden rounded-lg bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-800 dark:text-white">
                   <div className="mb-6 md:flex md:items-center">
                     <form onSubmit={handleSubmit(onSubmit)}>
                       <div className="md:w-2/3">
@@ -84,7 +84,7 @@ const AddRoutineItem: FC = () => {
 
                         <button
                           className="text-md mt-2 flex w-full items-center justify-around rounded-md border border-transparent bg-slate-800 px-4 py-2 font-medium text-white focus:outline-none 
-                          dark:border-white"
+                          dark:border-white dark:bg-white dark:text-slate-800"
                           type="submit"
                         >
                           Submit
