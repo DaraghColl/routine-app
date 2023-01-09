@@ -8,7 +8,7 @@ const AddRoutineItem: FC = () => {
   return (
     <div className="mb-4 flex w-full items-center justify-end">
       <button
-        className="text-md flex items-center rounded-md border border-transparent bg-slate-800 px-4 py-2 font-medium text-white focus:outline-none dark:bg-white dark:text-slate-800"
+        className="text-md flex items-center rounded-md border border-transparent bg-slate-800 px-4 py-2 font-medium text-white focus:outline-none"
         onClick={() =>
           addRoutineItem({
             id: 4,
@@ -20,7 +20,7 @@ const AddRoutineItem: FC = () => {
           })
         }
       >
-        <PlusIcon className="mr-2 h-4 w-4 text-white dark:text-slate-800" />
+        <PlusIcon className="mr-2 h-4 w-4 text-white" />
         New Item
       </button>
     </div>

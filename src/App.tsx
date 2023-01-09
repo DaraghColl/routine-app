@@ -3,7 +3,7 @@ import { Fragment, useContext } from 'react';
 import './App.css';
 import { AddRoutineItem } from './components/AddRoutineItem/AddRoutineItem';
 import { RoutineItem } from './components/RoutineItem/RoutineItem';
-import { RoutineItemDialog } from './components/RoutineItemDialog/RoutineItemDialog';
+import { RoutineItemDialog } from './components/RoutineItemOptions/RoutineItemOptions';
 import { ThemeSwitch } from './components/ThemeSwitch/ThemeSwitch';
 import { RoutineItemInterface } from './models/RoutineItem';
 import { RoutineItemsStateContext } from './state/RoutineItemsState';
