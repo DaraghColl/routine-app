@@ -51,6 +51,15 @@ const RoutineItemsStateProvider: FC<RoutineItemsProps> = ({ children }) => {
     const itemsArrayCopy = [...routineItems];
     const itemToChangeStatus = itemsArrayCopy.findIndex((item) => item.id === id);
     itemsArrayCopy[itemToChangeStatus].status = status;
+
+    if (status === 'complete') {
+      itemsArrayCopy.push(
+        itemsArrayCopy.splice(
+          itemsArrayCopy.findIndex((item) => item.id === id),
+          1,
+        )[0],
+      );
+    }
     setRoutineItems(itemsArrayCopy);
   };
 
