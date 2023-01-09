@@ -48,6 +48,10 @@ const RoutineItemsStateProvider: FC<RoutineItemsProps> = ({ children }) => {
   };
 
   const setRoutineItemStatus = (status: string, id: number) => {
+    if (status === routineItems.find((item) => item.id === id)?.status) {
+      return;
+    }
+
     const itemsArrayCopy = [...routineItems];
     const itemToChangeStatus = itemsArrayCopy.findIndex((item) => item.id === id);
     itemsArrayCopy[itemToChangeStatus].status = status;
