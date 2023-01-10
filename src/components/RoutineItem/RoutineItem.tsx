@@ -1,5 +1,5 @@
 import { Reorder } from 'framer-motion';
-import { FC, useContext, useState } from 'react';
+import { FC, useContext } from 'react';
 import { RoutineItemInterface } from '../../models/RoutineItem';
 import { RoutineItemsStateContext } from '../../state/RoutineItemsState';
 
