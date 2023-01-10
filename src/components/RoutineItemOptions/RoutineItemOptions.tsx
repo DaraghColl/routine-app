@@ -76,7 +76,7 @@ const RoutineItemDialog = () => {
                       className="text-md mt-2 flex items-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 hover:bg-blue-200 focus:outline-none"
                       onClick={() => routineItemMenuAction('progress', itemToEdit)}
                     >
-                      <PlayIcon className="mr-2 h-4 w-4 text-indigo-500" />
+                      <PlayIcon className="mr-2 h-4 w-4 text-blue-500" />
                       Mark as in progress
                     </button>
 
