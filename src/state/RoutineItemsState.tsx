@@ -1,4 +1,4 @@
-import { createContext, FC, ReactNode, useState } from 'react';
+import { createContext, FC, ReactNode, useEffect, useState } from 'react';
 import { RoutineItemInterface } from '../models/RoutineItem';
 
 const RoutineItemsStateContext = createContext<any>(null);
@@ -8,32 +8,18 @@ interface RoutineItemsProps {
 }
 
 const RoutineItemsStateProvider: FC<RoutineItemsProps> = ({ children }) => {
-  const [routineItems, setRoutineItems] = useState<RoutineItemInterface[]>([
-    {
-      id: 0,
-      title: 'Go running',
-      icon: '🏃‍♂️',
-      subTitle: 'Distance: 5km',
-      time: '09:00',
-      status: 'todo',
-    },
-    {
-      id: 1,
-      title: 'Brush teeth ',
-      icon: '🪥',
-      subTitle: '',
-      time: '09:30',
-      status: 'todo',
-    },
-    {
-      id: 2,
-      title: 'Breakfast',
-      icon: '🍳',
-      subTitle: 'Toast, Eggs, Coffee',
-      time: '10:15',
-      status: 'todo',
-    },
-  ]);
+  const [routineItems, setRoutineItems] = useState<RoutineItemInterface[]>(() => {
+    const savedRoutineItems = localStorage.getItem('routineItems');
+    if (savedRoutineItems) {
+      return JSON.parse(savedRoutineItems);
+    } else {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem('routineItems', JSON.stringify(routineItems));
+  }, [routineItems]);
 
   const [itemToEdit, setItemToEdit] = useState<number | null>(null);
 
