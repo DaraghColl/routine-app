@@ -16,15 +16,17 @@ function App() {
   return (
     <div className="App h-screen bg-slate-50 dark:bg-slate-700">
       <div className="mx-auto max-w-lg">
-        <div className="flex justify-end">
-          <DownloadData />
-          <UploadData />
-          <ThemeSwitch />
-        </div>
+        <div className="flex items-center justify-between px-4">
+          <h1 className="text-center text-lg font-extrabold text-slate-900 dark:text-slate-200">
+            YOUR DAY
+          </h1>
 
-        <h1 className="text-center text-2xl font-extrabold text-slate-900 dark:text-slate-200 sm:text-3xl">
-          Your Day
-        </h1>
+          <div className="flex">
+            <DownloadData />
+            <UploadData />
+            <ThemeSwitch />
+          </div>
+        </div>
 
         <div className="px-4 py-10">
           <AddRoutineItem />
