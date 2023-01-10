@@ -33,6 +33,7 @@ const AddRoutineItem: FC = () => {
       subTitle: data.subTitle,
       time: data.time,
       status: 'todo',
+      daySection: 'morning',
     });
 
     reset();
