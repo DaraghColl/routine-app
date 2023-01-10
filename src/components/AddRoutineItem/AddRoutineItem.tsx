@@ -4,6 +4,7 @@ import { PlusIcon } from '@heroicons/react/24/outline';
 import { Dialog, Transition } from '@headlessui/react';
 import { useForm } from 'react-hook-form';
 import { InputItem } from './InputItem';
+import { v4 as uuid } from 'uuid';
 
 const AddRoutineItem: FC = () => {
   const { addRoutineItem } = useContext(RoutineItemsStateContext);
@@ -25,9 +26,8 @@ const AddRoutineItem: FC = () => {
   };
 
   const onSubmit = (data: any) => {
-    console.log(data);
     addRoutineItem({
-      id: 4,
+      id: uuid(),
       title: data.title,
       icon: data.icon,
       subTitle: data.subTitle,
