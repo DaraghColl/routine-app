@@ -18,7 +18,7 @@ const ThemeSwitch: FC = () => {
   }, [isDark]);
 
   return (
-    <div className="flex justify-end py-2 px-4">
+    <div className="flex justify-end py-2 px-2">
       <button
         className="inline-flex items-center justify-center rounded-md bg-slate-800 p-2 shadow-lg"
         onClick={() => setIsDark(!isDark)}
