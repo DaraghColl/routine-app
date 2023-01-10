@@ -2,8 +2,17 @@ import { FC, useEffect, useState } from 'react';
 import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 
 const ThemeSwitch: FC = () => {
-  const [isDark, setIsDark] = useState<boolean>(false);
+  const [isDark, setIsDark] = useState<boolean>(() => {
+    const isDarkTheme = localStorage.getItem('isDarkTheme');
+    if (isDarkTheme) {
+      return JSON.parse(isDarkTheme);
+    } else {
+      return false;
+    }
+  });
+
   useEffect(() => {
+    localStorage.setItem('isDarkTheme', isDark.toString());
     const bodyElement = document.querySelector('body') as HTMLElement;
     isDark ? bodyElement.classList.add('dark') : bodyElement.classList.remove('dark');
   }, [isDark]);
