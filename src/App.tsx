@@ -21,7 +21,7 @@ function App() {
             YOUR DAY
           </h1>
 
-          <div className="flex">
+          <div className="flex gap-2">
             <DownloadData />
             <UploadData />
             <ThemeSwitch />

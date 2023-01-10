@@ -24,7 +24,7 @@ const UploadData: FC = () => {
   };
 
   return (
-    <div className="flex justify-end py-2 px-2">
+    <div className="flex justify-end py-2">
       <input
         type="file"
         accept="*.json"

@@ -15,7 +15,7 @@ const DownloadData: FC = () => {
   }, [routineItems]);
 
   return (
-    <div className="flex justify-end py-2 px-2">
+    <div className="flex justify-end py-2">
       <a
         href={downloadJsonnRef}
         download="routineItems.json"
