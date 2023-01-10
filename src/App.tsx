@@ -31,13 +31,38 @@ function App() {
         <div className="px-4 py-10">
           <AddRoutineItem />
           <Reorder.Group axis="y" values={routineItems} onReorder={setRoutineItems}>
-            {routineItems.map((item: RoutineItemInterface) => {
-              return (
-                <Fragment key={item.id}>
-                  <RoutineItem item={item} />
-                </Fragment>
-              );
-            })}
+            <h3>Morning</h3>
+            {routineItems
+              .filter((routineItem: RoutineItemInterface) => routineItem.daySection === 'morning')
+              .map((item: RoutineItemInterface) => {
+                return (
+                  <Fragment key={item.id}>
+                    <RoutineItem item={item} />
+                  </Fragment>
+                );
+              })}
+
+            <h3>Afternoon</h3>
+            {routineItems
+              .filter((routineItem: RoutineItemInterface) => routineItem.daySection === 'afternoon')
+              .map((item: RoutineItemInterface) => {
+                return (
+                  <Fragment key={item.id}>
+                    <RoutineItem item={item} />
+                  </Fragment>
+                );
+              })}
+
+            <h3>Evening</h3>
+            {routineItems
+              .filter((routineItem: RoutineItemInterface) => routineItem.daySection === 'evening')
+              .map((item: RoutineItemInterface) => {
+                return (
+                  <Fragment key={item.id}>
+                    <RoutineItem item={item} />
+                  </Fragment>
+                );
+              })}
           </Reorder.Group>
         </div>
         <RoutineItemDialog />
