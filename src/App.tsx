@@ -37,7 +37,7 @@ function App() {
               <Disclosure>
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full items-center justify-between rounded-lg bg-slate-100 px-4 py-2 text-left text-sm font-medium text-slate-900 hover:bg-slate-200">
+                    <Disclosure.Button className="flex w-full items-center justify-between rounded-lg bg-slate-100 px-4 py-2 text-left text-sm font-medium text-slate-900 hover:bg-slate-200 dark:bg-slate-800 dark:text-white">
                       <div className="flex items-center gap-2">
                         <div className="inline-flex items-center justify-center rounded-md bg-blue-100 p-1">
                           <SunIcon className="h-5 w-5 text-blue-500" />
@@ -47,7 +47,7 @@ function App() {
                       <ChevronUpIcon
                         className={`${
                           open ? 'rotate-180 transform' : 'rotate-90 transform'
-                        } h-5 w-5`}
+                        } h-5 w-5 transition ease-in-out`}
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -73,7 +73,7 @@ function App() {
               <Disclosure>
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full items-center justify-between rounded-lg bg-slate-100 px-4 py-2 text-left text-sm font-medium text-slate-900 hover:bg-slate-200 ">
+                    <Disclosure.Button className="flex w-full items-center justify-between rounded-lg bg-slate-100 px-4 py-2 text-left text-sm font-medium text-slate-900 hover:bg-slate-200 dark:bg-slate-800 dark:text-white">
                       <div className="flex items-center gap-2">
                         <div className="inline-flex items-center justify-center rounded-md bg-purple-100 p-1">
                           <SunIcon className="h-5 w-5 text-purple-500" />
@@ -83,7 +83,7 @@ function App() {
                       <ChevronUpIcon
                         className={`${
                           open ? 'rotate-180 transform' : 'rotate-90 transform'
-                        } h-5 w-5`}
+                        } h-5 w-5 transition ease-in-out`}
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -109,7 +109,7 @@ function App() {
               <Disclosure>
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full items-center justify-between rounded-lg bg-slate-100 px-4 py-2 text-left text-sm font-medium text-slate-900  hover:bg-slate-200">
+                    <Disclosure.Button className="flex w-full items-center justify-between rounded-lg bg-slate-100 px-4 py-2 text-left text-sm font-medium text-slate-900  hover:bg-slate-200 dark:bg-slate-800 dark:text-white">
                       <div className="flex items-center gap-2">
                         <div className="inline-flex items-center justify-center rounded-md bg-rose-100 p-1">
                           <MoonIcon className="h-5 w-5 text-rose-500" />
@@ -119,7 +119,7 @@ function App() {
                       <ChevronUpIcon
                         className={`${
                           open ? 'rotate-180 transform' : 'rotate-90 transform'
-                        } h-5 w-5`}
+                        } h-5 w-5 transition ease-in-out`}
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
