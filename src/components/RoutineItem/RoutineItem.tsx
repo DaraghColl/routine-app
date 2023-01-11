@@ -24,7 +24,7 @@ const RoutineItem: FC<RoutineItemProps> = (props) => {
 
   return (
     <Reorder.Item key={item.id} value={item} onClick={() => onItemSelect(item.id)}>
-      <div className="relative mb-4 flex cursor-pointer items-center justify-between rounded-lg  bg-white px-4 py-4 align-middle tracking-wide ring-0 dark:border-slate-500 dark:bg-slate-800">
+      <div className="relative mb-4 flex cursor-pointer items-center justify-between rounded-lg  bg-white px-4 py-2 align-middle tracking-wide ring-0 dark:border-slate-500 dark:bg-slate-800">
         <div className="w-full">
           <div
             className={`absolute left-0 top-0 h-full w-2 rounded-l-md ${
